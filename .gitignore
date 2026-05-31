@@ -1,0 +1,57 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+*.whl
+*.so
+
+# --- Virtual environment ---
+.venv/
+venv/
+env/
+.virtualenv/
+
+# --- IDE / Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --- Testing ---
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.coverage.*
+coverage.xml
+*.coverage
+
+# --- Build / Packaging ---
+*.manifest
+MANIFEST
+
+# --- Secrets & config ---
+.env
+.env.local
+.env.*.local
+*.cookies
+*.session
+*.cache
+*.log
+.local/
+secrets/
+
+# --- AgentSkills.io ---
+# references/ and assets/ are intentionally tracked
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+*.swp

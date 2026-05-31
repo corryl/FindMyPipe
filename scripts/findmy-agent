@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# findmy-agent — Apple Find My bridge for AI agents (CLI)
+#
+# AgentSkills.io entry point.
+# Usage: scripts/findmy-agent <command> [options]
+#
+set -euo pipefail
+
+# Resolve the project root directory (where this script lives)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Prefer the installed version (pip install -e .), fallback to source
+if command -v findmy-agent &>/dev/null; then
+    exec findmy-agent "$@"
+fi
+
+# Fallback: run from source via python -m
+if [ -f "$PROJECT_ROOT/.venv/bin/python3" ]; then
+    exec "$PROJECT_ROOT/.venv/bin/python3" -m findmy_agent_bridge.cli "$@"
+fi
+
+# Last resort
+exec python3 -m findmy_agent_bridge.cli "$@"
